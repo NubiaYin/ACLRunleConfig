@@ -1,2 +1,6 @@
 server=/apple.com/114.114.114.114
 server=/apple.com.cn/114.114.114.114
+server=/cdn-apple.com/114.114.114.114
+server=/icloud.com/114.114.114.114
+server=/icloud.com.cn/114.114.114.114
+
