@@ -23,15 +23,15 @@ jobs:
     - name: Download file from URL
       run: wget -O accelerated-domains.china.conf https://testingcf.jsdelivr.net/gh/felixonmars/dnsmasq-china-list@master/accelerated-domains.china.conf
 
-    - name: Append content from Others/ChinaDomainFinal.list to accelerated-domains.china.conf
-      run: cat Others/ChinaDomainFinal.list >> accelerated-domains.china.conf
+    - name: Append Custome White List to accelerated-domains.china.conf
+      run: cat Others/ChinaDomain/CustomeWhite.list >> accelerated-domains.china.conf
 
     - name: Overwrite final_config.list in repo
-      run: cp accelerated-domains.china.conf Others/ChinaDomainFinal.list
+      run: cp accelerated-domains.china.conf Others/ChinaDomain/ChinaDomainFinal.list
 
     - name: Commit and push
       run: |
-        git add Others/ChinaDomainFinal.list
+        git add Others/ChinaDomain/ChinaDomainFinal.list
         git commit -m "Update final_config.list"
         echo ${{ secrets.GITHUB_TOKEN }}
 
