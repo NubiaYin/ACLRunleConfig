@@ -33,6 +33,7 @@ jobs:
       run: |
         git add Others/ChinaDomainFinal.list
         git commit -m "Update final_config.list"
+        echo ${{ secrets.GITHUB_TOKEN }}
         
     - name: Push changes
       uses: ad-m/github-push-action@master
