@@ -31,11 +31,18 @@ jobs:
 
     - name: Commit and push
       run: |
-        git add Others/ChinaDomain/ChinaDomainFinal.list
-        git commit -m "Update final_config.list"
-        echo ${{ secrets.GITHUB_TOKEN }}
+        git_status=$(git status --porcelain)
+        if [[ -n "$git_status" ]]; then
+          git add Others/ChinaDomain/ChinaDomainFinal.list
+          git commit -m "Update final_config.list"
+          echo "File Has Updated"
+        else
+          echo "Nothing changed"
+          exit 1
+        fi
 
     - name: Push changes
       uses: ad-m/github-push-action@master
+      if: success()
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
