@@ -31,7 +31,7 @@ jobs:
 
     - name: Commit and push
       uses: ad-m/github-push-action@master
-      run:
+      run: ｜
         git add Others/ChinaDomain/ChinaDomainFinal.list
         git commit -m "Update final_config.list"
         github_token: ${{ secrets.GITHUB_TOKEN }}
