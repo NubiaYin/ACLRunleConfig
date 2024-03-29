@@ -34,4 +34,5 @@ jobs:
       run: ｜
         git add Others/ChinaDomain/ChinaDomainFinal.list
         git commit -m "Update final_config.list"
+      with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
