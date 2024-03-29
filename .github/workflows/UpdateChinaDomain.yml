@@ -30,12 +30,8 @@ jobs:
       run: cp accelerated-domains.china.conf Others/ChinaDomain/ChinaDomainFinal.list
 
     - name: Commit and push
+      uses: ad-m/github-push-action@master
       run: |
         git add Others/ChinaDomain/ChinaDomainFinal.list
         git commit -m "Update final_config.list"
-        echo ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
