@@ -4,14 +4,14 @@ DOMAIN-SUFFIX,github.com
 DOMAIN-SUFFIX,githubusercontent.com
 DOMAIN-SUFFIX,v2ex.com
 
-;Game
+#Game
 DOMAIN-SUFFIX,stats.gc.apple.com
 DOMAIN-SUFFIX,profile.gc.apple.com 
 DOMAIN-SUFFIX,unity3d.com
 DOMAIN-SUFFIX,cloudfunctions.net
 
-;Comic
+#Comic
 DOMAIN-SUFFIX,copymanga.site
 
-;SESE
+#SESE
 DOMAIN-SUFFIX,patreon.com
