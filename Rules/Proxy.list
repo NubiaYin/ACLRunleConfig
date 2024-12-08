@@ -5,14 +5,11 @@ DOMAIN-SUFFIX,githubusercontent.com
 DOMAIN-SUFFIX,v2ex.com
 DOMAIN-SUFFIX,ghcr.io
 
-# Game
 DOMAIN-SUFFIX,stats.gc.apple.com
 DOMAIN-SUFFIX,profile.gc.apple.com 
 DOMAIN-SUFFIX,unity3d.com
 DOMAIN-SUFFIX,cloudfunctions.net
 
-# Comic
 DOMAIN-SUFFIX,copymanga.site
 
-# SESE
 DOMAIN-SUFFIX,patreon.com
