@@ -54,6 +54,7 @@ jobs:
       run: rm -rf TT.list && rm -rf OpenAi.list && rm -rf Claude.list
       
     - name: Commit and push
+      id: commit
       run: |
         git_status=$(git status --porcelain)
         echo git_status
@@ -62,13 +63,14 @@ jobs:
           git add Rules/TT.list
           git add Rules/OpenAi.list
           git commit -m "Update Rule"
+          echo "changes=true" >> $GITHUB_OUTPUT
         else
           echo "Nothing changed"
-          exit 0
+          echo "changes=false" >> $GITHUB_OUTPUT
         fi
-
+    
     - name: Push changes
       uses: ad-m/github-push-action@master
-      if: success()
+      if: steps.commit.outputs.changes == 'true'
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.GITHUB_TOKEN }} 
