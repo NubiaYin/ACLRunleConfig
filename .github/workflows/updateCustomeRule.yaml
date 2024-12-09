@@ -25,7 +25,9 @@ jobs:
 
     - name: Download OpenAi Rule from URL
       run: wget -O OpenAi.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OpenAI/OpenAI.list
-
+    - name: Download Claude Rule from URL
+      run: wget -O Claude.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Anthropic/Anthropic.list
+      
     - name: Delete Old Rule
       run: rm -rf Rules/TT.list && rm -rf Rules/OpenAi.list
 
@@ -35,12 +37,18 @@ jobs:
     - name: Delete Line From OpenAi.list Where Line Start With #
       run: sed -i '/^#/d' OpenAi.list
 
+    - name: Delete Line From Claude.list Where Line Start With #
+      run: sed -i '/^#/d' Claude.list
+      
     - name: Append New Rule to Rules/TT.list
       run: cat TT.list >> Rules/TT.list
 
     - name: Append New Rule to Rules/OpenAi.list
       run: cat OpenAi.list >> Rules/OpenAi.list
 
+    - name: Merge Claude.list to Rules/OpenAi.list
+      run: cat Claude.list >> Rules/OpenAi.list
+    
     - name: Commit and push
       run: |
         git_status=$(git status --porcelain)
