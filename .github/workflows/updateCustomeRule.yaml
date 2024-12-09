@@ -2,7 +2,7 @@ name: Update Rule File
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # 每天0点运行一次
+    - cron: '0 0 * * 0'  # 每周日0点运行一次
 
 # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -39,7 +39,7 @@ jobs:
 
     - name: Delete Line From Claude.list Where Line Start With #
       run: sed -i '/^#/d' Claude.list
-      
+
     - name: Append New Rule to Rules/TT.list
       run: cat TT.list >> Rules/TT.list
 
@@ -49,6 +49,10 @@ jobs:
     - name: Merge Claude.list to Rules/OpenAi.list
       run: cat Claude.list >> Rules/OpenAi.list
     
+
+    - name: Delete File
+      run: rm -rf TT.list && rm -rf OpenAi.list && rm -rf Claude.list
+      
     - name: Commit and push
       run: |
         git_status=$(git status --porcelain)
