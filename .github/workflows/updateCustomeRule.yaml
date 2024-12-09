@@ -1,4 +1,4 @@
-name: Update China Domain File
+name: Update Rule File
 
 on:
   schedule:
