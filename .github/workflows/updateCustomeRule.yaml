@@ -27,7 +27,7 @@ jobs:
       run: wget -O OpenAi.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OpenAI/OpenAI.list
 
     - name: Delete Old Rule
-      run: rm -rf Others/Rules/TT.list && rm -rf Others/Rules/OpenAi.list
+      run: rm -rf Rules/TT.list && rm -rf Rules/OpenAi.list
 
     - name: Delete Line From TT.list Where Line Start With #
       run: sed -i '/^#/d' TT.list
@@ -35,11 +35,11 @@ jobs:
     - name: Delete Line From OpenAi.list Where Line Start With #
       run: sed -i '/^#/d' OpenAi.list
 
-    - name: Append New Rule to Others/Rules/TT.list
-      run: cat TT.list >> Others/Rules/TT.list
+    - name: Append New Rule to Rules/TT.list
+      run: cat TT.list >> Rules/TT.list
 
-    - name: Append New Rule to Others/Rules/OpenAi.list
-      run: cat OpenAi.list >> Others/Rules/OpenAi.list
+    - name: Append New Rule to Rules/OpenAi.list
+      run: cat OpenAi.list >> Rules/OpenAi.list
 
     - name: Commit and push
       run: |
@@ -47,8 +47,8 @@ jobs:
         echo git_status
         if [[ -n "$git_status" ]]; then
           echo "File Has Updated"
-          git add Others/Rules/TT.list
-          git add Others/Rules/OpenAi.list
+          git add Rules/TT.list
+          git add Rules/OpenAi.list
           git commit -m "Update Rule"
         else
           echo "Nothing changed"
