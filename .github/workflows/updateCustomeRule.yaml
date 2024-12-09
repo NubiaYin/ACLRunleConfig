@@ -64,7 +64,7 @@ jobs:
           git commit -m "Update Rule"
         else
           echo "Nothing changed"
-          exit 1
+          exit 0
         fi
 
     - name: Push changes
