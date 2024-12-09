@@ -1,0 +1,62 @@
+name: Update China Domain File
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # 每天0点运行一次
+
+# Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Git
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+
+    - name: Download TT Rule from URL
+      run: wget -O TT.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/TikTok/TikTok.list
+
+    - name: Download OpenAi Rule from URL
+      run: wget -O OpenAi.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OpenAI/OpenAI.list
+
+    - name: Delete Old Rule
+      run: rm -rf Others/Rules/TT.list && rm -rf Others/Rules/OpenAi.list
+
+    - name: Delete Line From TT.list Where Line Start With #
+      run: sed -i '/^#/d' TT.list
+
+    - name: Delete Line From OpenAi.list Where Line Start With #
+      run: sed -i '/^#/d' OpenAi.list
+
+    - name: Append New Rule to Others/Rules/TT.list
+      run: cat TT.list >> Others/Rules/TT.list
+
+    - name: Append New Rule to Others/Rules/OpenAi.list
+      run: cat OpenAi.list >> Others/Rules/OpenAi.list
+
+    - name: Commit and push
+      run: |
+        git_status=$(git status --porcelain)
+        echo git_status
+        if [[ -n "$git_status" ]]; then
+          echo "File Has Updated"
+          git add Others/Rules/TT.list
+          git add Others/Rules/OpenAi.list
+          git commit -m "Update Rule"
+        else
+          echo "Nothing changed"
+          exit 1
+        fi
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      if: success()
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
