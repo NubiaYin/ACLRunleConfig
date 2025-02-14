@@ -57,7 +57,7 @@ jobs:
       run: wget -O BanProgramAD.list https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list
 
     - name: Delete Domain At BanProgramAD.list where domain is in removeAd.list
-      run: grep -v -F -f removeAd.list BanProgramAD.list > BanProgramAD.list.tmp && mv BanProgramAD.list.tmp BanProgramAD.list
+      run: grep -v -F -f Others/Modify/removeAd.list BanProgramAD.list > BanProgramAD.list.tmp && mv BanProgramAD.list.tmp BanProgramAD.list
 
     - name: Delete Origin BanProgramAD.list
       run: rm -rf Rules/BanProgramAD.list
