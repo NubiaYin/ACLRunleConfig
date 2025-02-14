@@ -74,6 +74,7 @@ jobs:
           echo "File Has Updated"
           git add Rules/TT.list
           git add Rules/OpenAi.list
+          git add Rules/BanProgramAD.list
           git commit -m "Update Rule"
           echo "changes=true" >> $GITHUB_OUTPUT
         else
