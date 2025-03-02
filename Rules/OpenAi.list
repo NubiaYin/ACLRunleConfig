@@ -37,7 +37,3 @@ IP-ASN,20473,no-resolve
 DOMAIN,servd-anthropic-website.b-cdn.net
 DOMAIN-SUFFIX,anthropic.com
 DOMAIN-SUFFIX,claude.ai
-DOMAIN-SUFFIX,apple-relay.apple.com
-DOMAIN-SUFFIX,apple-relay.cloudflare.com
-DOMAIN-SUFFIX,apple-relay
-
