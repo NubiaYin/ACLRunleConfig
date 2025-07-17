@@ -6,6 +6,7 @@ DOMAIN-SUFFIX,v2ex.com
 DOMAIN-SUFFIX,ghcr.io
 DOMAIN-SUFFIX,cursor.com
 DOMAIN-SUFFIX,cursor.sh
+DOMAIN-SUFFIX,x.com
 
 DOMAIN-SUFFIX,stats.gc.apple.com
 DOMAIN-SUFFIX,profile.gc.apple.com 
