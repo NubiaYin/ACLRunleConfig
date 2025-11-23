@@ -36,6 +36,3 @@ IP-ASN,20473,no-resolve
 DOMAIN,servd-anthropic-website.b-cdn.net
 DOMAIN-SUFFIX,anthropic.com
 DOMAIN-SUFFIX,claude.ai
-DOMAIN-SUFFIX,googleapis.com
-PROCESS-NAME,antigravity.exe
-DOMAIN-SUFFIX,antigravity.google
