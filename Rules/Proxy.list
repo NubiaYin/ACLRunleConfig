@@ -24,3 +24,5 @@ DOMAIN-SUFFIX,monsterhunter.com
 
 DOMAIN-SUFFIX,files.pythonhosted.org
 DOMAIN-SUFFIX,pypi.org
+
+DOMAIN-SUFFIX,huggingface.co
